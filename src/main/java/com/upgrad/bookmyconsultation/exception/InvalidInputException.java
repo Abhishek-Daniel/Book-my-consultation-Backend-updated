@@ -9,8 +9,4 @@ import java.util.List;
 @AllArgsConstructor
 public class InvalidInputException extends Exception{
     private List<String> attributeNames;
-
-//    public InvalidInputException(String errorMessage) {
-//        super(errorMessage);
-//    }
 }

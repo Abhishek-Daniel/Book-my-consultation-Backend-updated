@@ -27,8 +27,7 @@ public class RatingsController {
 	}
 
 
-	//trying to make a method to fetch if appointmentId and doctorId combination
-	//already exits or not
+	//Created a method to fetch check if appointment already exits or not, representing rating is already submitted or not
 	@GetMapping(value = "/ratings/{appointmentId}")
 	public ResponseEntity<Boolean> isNotRated(@PathVariable(name = "appointmentId") String appointmentId) {
 

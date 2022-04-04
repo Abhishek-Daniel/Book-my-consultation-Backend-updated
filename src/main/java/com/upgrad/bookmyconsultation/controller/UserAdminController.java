@@ -43,13 +43,11 @@ public class UserAdminController {
 		User userReturnedFromDB = userService.register(user);
 		//register the user
 		//return http response with status set to OK
-
 		if(userReturnedFromDB.getCreatedDate() == null){
 			return new ResponseEntity<>(userReturnedFromDB,HttpStatus.BAD_REQUEST);
 		}
 
-//		return ResponseEntity.ok(userService.register(user));
-
+	//return http response with status set to OK
 		return ResponseEntity.ok(userReturnedFromDB);
 	}
 

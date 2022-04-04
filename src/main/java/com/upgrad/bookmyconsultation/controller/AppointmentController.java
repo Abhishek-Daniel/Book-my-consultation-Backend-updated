@@ -30,7 +30,6 @@ public class AppointmentController {
 		//save the appointment details to the database and save the response from the method used
 		//return http response using ResponseEntity
 		return ResponseEntity.ok(appointmentService.appointment(appointment));
-		// Check for created status with upgrad
 	}
 
 	
@@ -42,9 +41,7 @@ public class AppointmentController {
 	@GetMapping("/{appointmentsId}")
 	public ResponseEntity<Appointment> getAppointment(@PathVariable String appointmentsId){
 
-		//get the appointment details using the appointmentId
-		//save the response
-		//return the response as an http response
+		//get the appointment details using the appointmentId and return the response as an http response
 		return ResponseEntity.ok(appointmentService.getAppointment(appointmentsId));
 	}
 

@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -29,11 +30,14 @@ public class UserService {
 		ValidationUtils.validate(user);
 
 		// Checking if User with same email id is present or not, if email id is present then returning null which will be handled in front-end
-		if(userRepository.findByEmailId(user.getEmailId()) != null){
+
+		List<User> users= getAllUsers().stream().filter(u->u.getEmailId().equals(user.getEmailId()))
+				.collect(Collectors.toList());
+		if(users.size() != 0){
 			return user;
 		}
 
-		user.setCreatedDate(LocalDateTime.now().toString());
+		user.setCreatedDate(LocalDate.now().toString());
 		encryptPassword(user);
 		userRepository.save(user);
 		return user;

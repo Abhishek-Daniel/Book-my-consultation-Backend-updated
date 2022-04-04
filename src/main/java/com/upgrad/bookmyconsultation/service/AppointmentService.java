@@ -56,16 +56,11 @@ public class AppointmentService {
 		}
 	}
 
-//	public User getUser(String id) {
-//		return Optional.ofNullable(userRepository.findById(id))
-//				.get()
-//				.orElseThrow(ResourceUnAvailableException::new);
-//	} by me
 
 	//create a method getAppointment of type Appointment with a parameter name appointmentId of type String
 	public Appointment getAppointment(String appointmentId){
 
-		//Use the appointmentid to get the appointment details
+		//Use the appointmentId to get the appointment details
 		return Optional.ofNullable(appointmentRepository.findById(appointmentId).get())
 				.orElseThrow(ResourceUnAvailableException :: new);
 		//if the appointment exists return the appointment
